@@ -1,0 +1,128 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+}
+
+$colorBack: #17212d;
+$colorBlur: #8b6afd;
+$colorWhite: #f0f3fd;
+$colorText: #9da8c3;
+$colorText2: #8c69fd;
+
+
+
+
+.app {
+    background: var(--bg-color);
+    min-height: 100vh;
+}
+
+.content-page {
+    // display: flex;
+}
+
+
+.page-wrapper {
+    flex-grow: 1;
+    padding: 20px 20px 20px 45px;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height)); 
+    overflow-y: auto;
+}
+
+
+
+button{
+  font-family: "Share Tech Mono";
+}
+
+
+
+.table {
+
+  border-collapse: collapse;
+  width: 100%;
+
+  font-family: Montserrat;
+font-size: 14px;
+font-weight: 400;
+line-height: 19px;
+letter-spacing: 0em;
+text-align: left;
+
+
+    button{
+  font-family: "Share Tech Mono";
+}
+
+&_container{
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 20px 10px;
+  margin-top: 20px;
+}
+&_block {
+  overflow-y: scroll;
+  padding-left: 20px;
+  
+&::-webkit-scrollbar {
+    width: 6px;               /* ширина scrollbar */
+    height: 6px;
+}
+
+&::-webkit-scrollbar-track {
+    background: #17212d;        /* цвет дорожки */
+}
+
+&::-webkit-scrollbar-thumb {
+    background-color: #9da8c3;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: #17212d;  /* padding вокруг плашки */
+}
+}
+
+
+
+}
+
+.table th,
+.table td {
+     padding: 5px 10px;
+  text-align: left;
+  min-width: 140px;
+  &::-webkit-scrollbar {
+  width: 0;
+}
+   
+}
+.table th textarea,
+.table td textarea {
+  border-right: 1px solid#9da8c3 ; 
+
+   
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+.table thead {
+  
+}
+.table tbody tr {
+  border-top: 1px solid $colorText;
+}
+
+.border-company-list {
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+      padding: 5px 10px;
+      border-radius: 10px;
+
+}
+.border-this-list {
+
+      padding: 5px 10px;
+      border-radius: 10px;
+      border-bottom: 1px solid #8b6afd;
+}
