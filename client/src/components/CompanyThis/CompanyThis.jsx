@@ -22,8 +22,9 @@ export const CompanyThis = () => {
     } = useGetCompanyThisQuery(user._id);
 
     useEffect(() => {
+        console.log(isSuccess);
         if (isSuccess) dispatch(companyActions.setFromInit(company.tables));
-    }, []);
+    }, [isSuccess]);
 
     if (isLoading) return <Loader />;
     if (isError) return <div className="">Орг анизаций не дайдено</div>;
@@ -32,10 +33,7 @@ export const CompanyThis = () => {
         <div className="block">
             <h1 className="border-this-list text-[24px]">{user.companyname}</h1>
             {company ? (
-                <TableList
-                    isSuccessData={isSuccess}
-                    data={company.tables}
-                />
+                <TableList isSuccessData={isSuccess} data={company.tables} />
             ) : (
                 <h1>нету</h1>
             )}{' '}
