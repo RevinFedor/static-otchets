@@ -17,13 +17,16 @@ app.use(express.json());
 // роутиинг
 app.use('/api/auth', require('./routes/authRouter'));
 app.use('/api/users', require('./routes/userRouter'));
-app.use("/api/company", require("./routes/companyRouter"));
+app.use('/api/company', require('./routes/companyRouter'));
 // app.use("/api/notes", require("./routes/noteRouter"));
-
+const isdev = 'mongodb://localhost:27017/okeiStaticExel';
+const isprod =
+    'mongodb+srv://admin:rrr123@cluster0.gin8uzz.mongodb.net/okeiStaticExel?retryWrites=true&w=majority';
 const start = async () => {
     try {
         // connectDB
-        await mongoose.connect('mongodb://localhost:27017/okeiStaticExel');
+        await mongoose.connect(isprod);
+
         app.listen(3501, () =>
             console.log(`Server is listening port ${3501}...`)
         );

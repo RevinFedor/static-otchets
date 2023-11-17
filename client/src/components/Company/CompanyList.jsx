@@ -48,7 +48,7 @@ export const CompanyList = () => {
                     tables,
                 },
             }).unwrap();
-            setStatus('Пользователь успешно создан');
+            setStatus('Организаия успешно создана');
             setCompanyname('');
             setUsername('');
             setPassword('');

@@ -18,7 +18,7 @@ const SingUp = () => {
 
             setusername('');
             setpassword('');
-            setstatus('Пользователь успешно создан');
+            setstatus('Пользователь успешно создан, войдите в систему');
         } catch (error) {
             setstatus(error.data.message);
         }

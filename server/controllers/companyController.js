@@ -12,7 +12,7 @@ const getCompanyUser = async (req, res) => {
         user: req.params.id,
     }).lean();
 
-    if (companys.length < 1)
+    if (companys?.length < 1)
         return res.status(400).json({ message: 'Компаний нету' });
 
     res.json(companys);
@@ -25,7 +25,7 @@ const getCompanyThis = async (req, res) => {
     }
     const companys = await Company.findById(req.params.id).lean();
 
-    if (companys.length < 1)
+    if (companys?.length < 1)
         return res.status(400).json({ message: 'Компаний нету' });
 
     res.json(companys);
@@ -90,7 +90,7 @@ const deleteCompany = async (req, res) => {
         return res.status(400).json(`Нету пользователя`);
     }
 
-    company.delete();
+    company?.delete();
     return res.status(200).json({ message: `Компания удалена` });
 };
 

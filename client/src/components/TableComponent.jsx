@@ -24,7 +24,7 @@ const TableComponent = ({
     const [titleState, setTitleState] = useState('');
 
     // !проверяем, содержит ли какой-либо из элементов, на которые даны ссылки, элемент, на который был сделан щелчок
-    const updateBoardHandler = async (e, columnText, columnIndex) => {
+    const updateBoardHandler = async (e, columnName, columnIndex) => {
         if (e.key === 'Enter') {
             dispatch(
                 companyActions.setFromEdit({

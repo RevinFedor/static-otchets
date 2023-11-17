@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { companyActions } from '../features/company/companySlice';
 import { ExportPage } from './ExportPage';
 
-export const TableList = ({ data }) => {
+export const TableList = ({ data, isSuccessData }) => {
     // ! добавить в конец массива (название таблицы по ключу) пустую строчку
-    const [updateCompany] = useUpdateCompanyMutation();
+    const [updateCompany, { isLoading }] = useUpdateCompanyMutation();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
     const companyForm = useSelector((state) => state.company.formData);
@@ -20,10 +20,11 @@ export const TableList = ({ data }) => {
         await dispatch(companyActions.setFromDelete(tableName_rowIndex));
     };
 
-    // Используем useEffect для обработки изменений companyForm
+    console.log(companyForm);
+    // Используем useEffect для обработки изменений companyForm если объект не равен нулю, тоесть сработа initForm
     useEffect(() => {
         // Вызываем updateCompany, когда companyForm обновится
-        if (companyForm) {
+        if (companyForm && Object.keys(companyForm).length && isSuccessData) {
             updateCompany({ data: { userId: user._id, tables: companyForm } });
         }
     }, [companyForm]);

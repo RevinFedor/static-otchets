@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { TableList } from '../TableList';
 import { useParams } from 'react-router-dom';
 import {
@@ -21,16 +21,24 @@ export const CompanyThis = () => {
         error,
     } = useGetCompanyThisQuery(user._id);
 
+    useEffect(() => {
+        if (isSuccess) dispatch(companyActions.setFromInit(company.tables));
+    }, []);
+
     if (isLoading) return <Loader />;
-    if (isError) return <div className="">Организаций не дайдено</div>;
-    dispatch(companyActions.setFromInit(company.tables));
+    if (isError) return <div className="">Орг анизаций не дайдено</div>;
 
-
-   
     return (
         <div className="block">
             <h1 className="border-this-list text-[24px]">{user.companyname}</h1>
-            {company ? <TableList data={company.tables} /> : <h1>нету</h1>}{' '}
+            {company ? (
+                <TableList
+                    isSuccessData={isSuccess}
+                    data={company.tables}
+                />
+            ) : (
+                <h1>нету</h1>
+            )}{' '}
         </div>
     );
 };

@@ -46,10 +46,10 @@ const updateUser = async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findById(req.user.id).exec();
 
-    if (username) user.username = username;
-    if (password) user.password = password;
+    if (user && username) user.username = username;
+    if (user && password) user.password = password;
 
-    await user.save();
+    await user?.save();
     res.json({ message: `Пользователь обновлен` });
 };
 
